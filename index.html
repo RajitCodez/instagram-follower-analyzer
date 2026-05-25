@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Follower Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-shell" id="appShell">
+
+        <header>
+            <h1>Instagram Follower Analyzer</h1>
+            <p>
+                Process accounts securely, locally, and completely inside your client web browser.
+            </p>
+        </header>
+
+        <div class="upload-grid">
+
+            <div class="file-card">
+                <label for="followersFile">
+                    Followers Data (followers_1.json)
+                </label>
+
+                <input type="file" id="followersFile" accept=".json">
+            </div>
+
+            <div class="file-card">
+                <label for="followingFile">
+                    Following Data (following.json)
+                </label>
+
+                <input type="file" id="followingFile" accept=".json">
+            </div>
+
+        </div>
+
+        <div class="help-trigger-container">
+            <button class="help-link" onclick="toggleModal(true)">
+                📖 Need help getting your JSON files? Click here.
+            </button>
+        </div>
+
+        <div class="action-container">
+            <button class="btn-primary" onclick="compareLists()">
+                Analyze Accounts
+            </button>
+        </div>
+
+        <div id="results"></div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="instructionModal"
+         onclick="if(event.target === this) toggleModal(false)">
+
+        <div class="modal-window">
+
+            <div class="modal-header">
+                <h2>📋 How to Download Your Instagram Data</h2>
+
+                <button class="btn-close-x"
+                        onclick="toggleModal(false)">
+                    ✕
+                </button>
+            </div>
+
+            <div class="privacy-banner">
+                <strong>🔒 Your Privacy Matters:</strong>
+                This analyzer runs 100% locally in your browser.
+                Your data is never uploaded to any server.
+            </div>
+
+            <div class="step-block">
+                <h3>Step 1: Request Your Information</h3>
+
+                <ul>
+                    <li>
+                        Open Instagram and go to
+                        <strong>Settings and Activity</strong>.
+                    </li>
+
+                    <li>
+                        Open <strong>Accounts Center</strong>.
+                    </li>
+
+                    <li>
+                        Navigate to
+                        <strong>Your information and permissions</strong>.
+                    </li>
+
+                    <li>
+                        Click
+                        <strong>Export your information</strong>.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="step-block">
+                <h3>Step 2: Configure Export</h3>
+
+                <ul>
+                    <li>Select <strong>Export to device</strong>.</li>
+
+                    <li>
+                        Choose
+                        <strong>Customise information</strong>.
+                    </li>
+
+                    <li>
+                        Select only
+                        <strong>Followers and following</strong>.
+                    </li>
+
+                    <li>
+                        Set format to
+                        <strong>JSON</strong>.
+                    </li>
+
+                    <li>
+                        Click <strong>Start export</strong>.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="step-block">
+                <h3>Step 3: Extract Required Files</h3>
+
+                <ul>
+                    <li>Download the ZIP file from Instagram.</li>
+
+                    <li>Extract the ZIP archive.</li>
+
+                    <li>
+                        Locate these files:
+                    </li>
+
+                    <ul>
+                        <li><strong>followers_1.json</strong></li>
+                        <li><strong>following.json</strong></li>
+                    </ul>
+
+                    <li>
+                        Upload both files into the analyzer.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-modal-close"
+                        onclick="toggleModal(false)">
+                    Got it
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
